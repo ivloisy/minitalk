@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 11:26:37 by ivloisy           #+#    #+#             */
-/*   Updated: 2021/10/16 14:28:43 by ivloisy          ###   ########.fr       */
+/*   Updated: 2021/10/16 13:07:45 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ static void	send_string(int pid, char *s)
 	while (i <= ft_strlen(s))
 	{
 		j = 0;
-		while (j < 7)
+		while (j < 15)
 		{
 			if ((s[i] >> j) & 1)
 				kill(pid, SIGUSR2);
 			else
 				kill(pid, SIGUSR1);
 			j++;
-			usleep(1000);
+			usleep(100);
 		}
 		i++;
 	}
